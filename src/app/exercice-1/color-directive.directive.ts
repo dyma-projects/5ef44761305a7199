@@ -13,12 +13,17 @@ export class ColorDirectiveDirective {
   @HostListener('window:keyup', ['$event']) keyEvent(event: KeyboardEvent) {
     console.log(event);
     if (event.keyCode === 39) {
-      this.color ='blue'
-    }else if (event.keyCode == 40 ) // flèche du haut
+      this.color = 'blue'
+    } else if (event.keyCode == 40) // flèche du haut
     {
       this.color = 'red';
-    } else {
+    } else if (event.keyCode == 37) {
+      this.color = 'grey';
+    } else if (event.keyCode == 38) {
       this.color = 'green';
+    }
+    else {
+      this.color = 'black';
     }
     
     console.log('mouseenter event occured');
