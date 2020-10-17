@@ -8,9 +8,13 @@ export class ColorDirectiveDirective {
   @HostBinding('style.Color') color;
   constructor(private elementRef: ElementRef,
     private renderer: Renderer2
-    ) { }
+  ) { }
 
-  @HostListener('window:keyup', ['$event']) keyEvent(event: KeyboardEvent) {
+  @HostListener('window: keyup', ['$event']) keydown(event: KeyboardEvent) {
+    this.color = 'black';
+  }
+
+  @HostListener('window: keydown', ['$event']) keyEvent(event: KeyboardEvent) {
     console.log(event);
     if (event.keyCode === 39) {
       this.color = 'blue'
@@ -24,8 +28,7 @@ export class ColorDirectiveDirective {
     }
     else {
       this.color = 'black';
-    }
-    
+    } 
     console.log('mouseenter event occured');
-}
+  }
 }
